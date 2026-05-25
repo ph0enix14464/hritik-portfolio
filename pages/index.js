@@ -323,7 +323,7 @@ const PROJECTS = [
 function Home({ goTo }) {
   const [title, tDone] = useTyping("Cyber Security Professional", 45, 400)
   const [sub, sDone] = useTyping("Network Security · SecOps · Research", 30, 1800)
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(true)
   useEffect(() => { if (tDone) setTimeout(() => setShow(true), 600) }, [tDone])
 
   return (
