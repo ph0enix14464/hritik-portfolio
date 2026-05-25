@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
-  reactStrictMode: true,
-};
+  output: 'export',
+  trailingSlash: true,
+  images: { unoptimized: true },
+  basePath: '/hritik-portfolio',
+  assetPrefix: '/hritik-portfolio/',
+}
 
-export default nextConfig;
+export default nextConfig
