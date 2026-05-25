@@ -6,7 +6,7 @@ const nextConfig = {
   trailingSlash: true,
   images: { unoptimized: true },
   basePath: isExport ? '/hritik-portfolio' : '',
-  assetPrefix: isExport ? '/hritik-portfolio' : '',
+  assetPrefix: isExport ? 'https://ph0enix14464.github.io/hritik-portfolio' : '',
 }
 
 export default nextConfig
