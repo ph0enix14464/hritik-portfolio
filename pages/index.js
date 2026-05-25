@@ -368,7 +368,7 @@ function Home({ goTo }) {
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           <div style={{ background: "var(--bg2)", border: "1px solid var(--border)", borderRadius: 10, overflow: "hidden", height: 280, position: "relative" }}>
             <img
-              src="/hritik-portfolio/images/hritik.jpeg"
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/hritik.jpeg`}
               alt="Hritik Jung Basnet at Northumbria University London"
               style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%", filter: "brightness(.85) contrast(1.1)" }}
               onError={e => {
