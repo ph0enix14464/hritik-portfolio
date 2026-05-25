@@ -9,32 +9,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --bg:#0a0e13;--bg2:#0f1419;--bg3:#141b24;
-      --border:rgba(0,255,136,0.15);--border2:rgba(0,255,136,0.3);
-      --green:#00ff88;--green2:#00cc6a;--gdim:rgba(0,255,136,0.08);
-      --text:#e2e8f0;--text2:#94a3b8;--text3:#4a5568;
-      --mono:'JetBrains Mono',monospace;--sans:'Inter',sans-serif;
-      --red:#ff4757;--amber:#ffa502;--blue:#3b82f6;--cyan:#06b6d4;
-    }
+    :root{--bg:#0a0e13;--bg2:#0f1419;--bg3:#141b24;--border:rgba(0,255,136,0.15);--border2:rgba(0,255,136,0.3);--green:#00ff88;--green2:#00cc6a;--gdim:rgba(0,255,136,0.08);--text:#e2e8f0;--text2:#94a3b8;--text3:#4a5568;--mono:'JetBrains Mono',monospace;--sans:'Inter',sans-serif;--red:#ff4757;--amber:#ffa502;--blue:#3b82f6;--cyan:#06b6d4}
     *{box-sizing:border-box;margin:0;padding:0}
     html,body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh}
-    .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;
-      background-image:linear-gradient(rgba(0,255,136,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,136,0.03) 1px,transparent 1px);
-      background-size:40px 40px}
+    .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(0,255,136,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,136,0.03) 1px,transparent 1px);background-size:40px 40px}
     .scanline{position:fixed;inset:0;pointer-events:none;z-index:50;overflow:hidden;opacity:.025}
     .scanline::after{content:'';position:absolute;width:100%;height:2px;background:var(--green);animation:scanline 10s linear infinite}
     .wrap{position:relative;z-index:1}
-    nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
-      height:54px;padding:0 32px;background:rgba(10,14,19,0.95);border-bottom:1px solid var(--border);backdrop-filter:blur(8px)}
+    nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;height:54px;padding:0 32px;background:rgba(10,14,19,0.95);border-bottom:1px solid var(--border);backdrop-filter:blur(8px)}
     .nav-brand{font-family:var(--mono);font-size:13px;color:var(--green);letter-spacing:.04em}
     .nav-links{display:flex;gap:4px}
-    .nav-btn{font-family:var(--mono);font-size:11px;padding:6px 14px;border-radius:4px;border:1px solid transparent;
-      cursor:pointer;background:transparent;color:var(--text2);letter-spacing:.03em;transition:all .15s}
+    .nav-btn{font-family:var(--mono);font-size:11px;padding:6px 14px;border-radius:4px;border:1px solid transparent;cursor:pointer;background:transparent;color:var(--text2);letter-spacing:.03em;transition:all .15s}
     .nav-btn:hover{background:var(--gdim);color:var(--green)}
     .nav-btn.on{background:var(--gdim);color:var(--green);border-color:var(--border2)}
-    .page{display:none;padding:40px 32px 60px;max-width:1100px;margin:0 auto;animation:fadeUp .4s ease}
-    .page.on{display:block}
+    .page{display:none;padding:40px 32px 60px;max-width:1100px;margin:0 auto}
+    .page.on{display:block;animation:fadeUp .4s ease}
     .card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:20px;transition:border-color .2s}
     .card:hover{border-color:var(--border2)}
     .card-feat{border-color:var(--green2)!important;box-shadow:0 0 28px rgba(0,255,136,0.07)}
@@ -45,8 +34,7 @@
     .br{background:rgba(255,71,87,0.1);color:#fb7185;border-color:rgba(255,71,87,0.25)}
     .bc{background:rgba(6,182,212,0.1);color:#22d3ee;border-color:rgba(6,182,212,0.25)}
     .bd{background:rgba(255,255,255,0.04);color:var(--text3);border-color:rgba(255,255,255,0.08)}
-    .sec{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);
-      margin-bottom:14px;display:flex;align-items:center;gap:10px}
+    .sec{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:14px;display:flex;align-items:center;gap:10px}
     .sec::after{content:'';flex:1;height:1px;background:var(--border)}
     .stat{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center}
     .sv{font-family:var(--mono);font-size:22px;font-weight:700}
@@ -54,42 +42,33 @@
     .skill-row{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
     .skill-row:last-child{border:none}
     .skill-track{width:90px;height:4px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden}
-    .skill-fill{height:100%;background:var(--green);border-radius:2px;transition:width 1.2s ease}
+    .skill-fill{height:100%;background:var(--green);border-radius:2px;width:0%;transition:width 0.8s cubic-bezier(0.25,0.46,0.45,0.94)}
     .tl-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:6px;background:var(--green);box-shadow:0 0 10px rgba(0,255,136,0.6)}
     .tl-line{width:1px;background:var(--border);flex-grow:1;margin:4px auto;min-height:120px}
-    .proj-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:20px;cursor:pointer;
-      transition:all .2s;display:flex;flex-direction:column;gap:12px}
+    .proj-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:20px;cursor:pointer;transition:all .2s;display:flex;flex-direction:column;gap:12px}
     .proj-card:hover{border-color:var(--border2);transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,0.5)}
     .proj-feat{border-color:var(--green2)!important;box-shadow:0 0 28px rgba(0,255,136,0.07)}
     .acc-track{width:100px;height:5px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden}
-    .acc-fill{height:100%;border-radius:2px}
-    .c-input{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 14px;
-      color:var(--text);font-family:var(--mono);font-size:12px;outline:none;transition:border-color .15s}
+    .acc-fill{height:100%;border-radius:2px;width:0%;transition:width 1s ease}
+    .c-input{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 14px;color:var(--text);font-family:var(--mono);font-size:12px;outline:none;transition:border-color .15s}
     .c-input:focus{border-color:var(--green2)}
     .c-input::placeholder{color:var(--text3)}
-    .cta-btn{background:var(--green);color:#0a0e13;border:none;border-radius:6px;padding:11px 22px;
-      font-family:var(--mono);font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.05em;transition:all .15s}
+    .cta-btn{background:var(--green);color:#0a0e13;border:none;border-radius:6px;padding:11px 22px;font-family:var(--mono);font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.05em;transition:all .15s}
     .cta-btn:hover{background:#00e57a;box-shadow:0 0 18px rgba(0,255,136,0.45)}
-    .ghost-btn{background:transparent;color:var(--green);border:1px solid var(--border2);border-radius:6px;
-      padding:10px 20px;font-family:var(--mono);font-size:12px;cursor:pointer;letter-spacing:.03em;
-      transition:all .15s;text-decoration:none;display:inline-block}
+    .cta-btn:disabled{opacity:.6;cursor:not-allowed}
+    .ghost-btn{background:transparent;color:var(--green);border:1px solid var(--border2);border-radius:6px;padding:10px 20px;font-family:var(--mono);font-size:12px;cursor:pointer;letter-spacing:.03em;transition:all .15s;text-decoration:none;display:inline-block}
     .ghost-btn:hover{background:var(--gdim);box-shadow:0 0 14px rgba(0,255,136,0.2)}
     .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .pulse-dot{width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;animation:pulse 2s infinite}
     @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
     @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
     @keyframes glitch{0%,93%,100%{transform:none;opacity:1}94%{transform:translateX(3px);opacity:.8}96%{transform:translateX(-2px);opacity:.9}}
     @keyframes scanline{0%{top:-2px}100%{top:100%}}
     @keyframes pulse{0%,100%{box-shadow:0 0 8px rgba(0,255,136,0.5)}50%{box-shadow:0 0 18px rgba(0,255,136,0.9)}}
+    @keyframes countUp{from{opacity:0}to{opacity:1}}
     ::-webkit-scrollbar{width:4px}
     ::-webkit-scrollbar-track{background:var(--bg)}
     ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
-    .typing{font-family:var(--mono);font-size:15px;color:var(--green);margin-bottom:6px;min-height:22px}
-    .typing-sub{font-family:var(--mono);font-size:11px;color:var(--text2);margin-bottom:24px;min-height:18px}
-    .cursor{animation:blink 1s infinite}
-    .pulse-dot{width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;animation:pulse 2s infinite}
-    .glitch-text{animation:glitch 5s infinite}
-    #msg-success{display:none;text-align:center;padding:36px 0}
-    #msg-error{display:none;font-family:var(--mono);font-size:11px;color:var(--red);margin-bottom:10px}
   </style>
 </head>
 <body>
@@ -115,9 +94,9 @@
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start">
     <div>
       <div style="font-family:var(--mono);font-size:11px;color:var(--green);margin-bottom:8px;opacity:.7"># whoami</div>
-      <h1 class="glitch-text" style="font-family:var(--mono);font-size:32px;font-weight:700;line-height:1.1;margin-bottom:10px">Hritik Jung Basnet</h1>
-      <div class="typing" id="typing1"></div>
-      <div class="typing-sub" id="typing2"></div>
+      <h1 id="name-heading" style="font-family:var(--mono);font-size:32px;font-weight:700;line-height:1.1;margin-bottom:10px;animation:glitch 5s infinite">Hritik Jung Basnet</h1>
+      <div id="typing1" style="font-family:var(--mono);font-size:15px;color:var(--green);margin-bottom:6px;min-height:22px"></div>
+      <div id="typing2" style="font-family:var(--mono);font-size:11px;color:var(--text2);margin-bottom:24px;min-height:18px"></div>
       <div style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:16px 18px;margin-bottom:22px;font-family:var(--mono);font-size:11px;line-height:1.9">
         <div><span style="color:var(--green)">$ </span><span style="color:var(--text2)">cat </span><span style="color:var(--amber)">bio.txt</span></div>
         <div style="margin-top:10px;color:var(--text);opacity:.85">
@@ -132,8 +111,8 @@
         <span style="font-family:var(--mono);font-size:11px;color:var(--text2)">Available immediately · UK placement year work rights</span>
       </div>
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px">
-        <button class="cta-btn" onclick="goTo('projects',document.querySelector('[onclick*=projects]'))">./view_projects.sh ↗</button>
-        <button class="ghost-btn" onclick="goTo('contact',document.querySelector('[onclick*=contact]'))">contact --hire</button>
+        <button class="cta-btn" onclick="goTo('projects',document.querySelectorAll('.nav-btn')[2])">./view_projects.sh ↗</button>
+        <button class="ghost-btn" onclick="goTo('contact',document.querySelectorAll('.nav-btn')[4])">contact --hire</button>
       </div>
       <div>
         <span class="badge bg">Palo Alto NGFW</span><span class="badge bg">Cisco FTD/FMC</span><span class="badge bg">Cisco ISE</span>
@@ -145,7 +124,7 @@
       <div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;overflow:hidden;height:280px;position:relative">
         <img src="hritik.jpeg" alt="Hritik Jung Basnet at Northumbria University London"
           style="width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:brightness(.85) contrast(1.1)"
-          onerror="this.parentNode.innerHTML='<div style=\'height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;background:var(--bg3)\'><div style=\'width:80px;height:80px;border-radius:50%;background:var(--bg);border:2px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:20px;font-weight:700;color:var(--green)\'>HJB</div></div>'" />
+          onerror="this.parentNode.innerHTML='<div style=\'height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;background:var(--bg3)\'><div style=\'width:80px;height:80px;border-radius:50%;background:var(--bg);border:2px solid rgba(0,255,136,0.3);display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:20px;font-weight:700;color:#00ff88\'>HJB</div></div>'" />
         <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,14,19,.75) 0%,transparent 55%)"></div>
         <div style="position:absolute;bottom:12px;left:14px;font-family:var(--mono);font-size:10px;color:var(--green);opacity:.85">@ Northumbria University, London</div>
       </div>
@@ -175,8 +154,8 @@
           <div style="font-family:var(--mono);font-size:10px;color:var(--green);background:var(--gdim);border:1px solid var(--border);border-radius:3px;padding:4px 10px">2023-09 → 2024-11</div>
         </div>
         <ul style="padding-left:0;list-style:none">
-          <li style="font-size:13px;color:var(--text2);line-height:1.85;padding-left:14px;position:relative;margin-bottom:2px"><span style="position:absolute;left:0;color:var(--green);font-family:var(--mono)">›</span>RBAC + MFA across staff accounts — eliminated shared-credential use in Q1</li>
-          <li style="font-size:13px;color:var(--text2);line-height:1.85;padding-left:14px;position:relative;margin-bottom:2px"><span style="position:absolute;left:0;color:var(--green);font-family:var(--mono)">›</span>Quarterly phishing-awareness training across 3 campuses</li>
+          <li style="font-size:13px;color:var(--text2);line-height:1.85;padding-left:14px;position:relative;margin-bottom:4px"><span style="position:absolute;left:0;color:var(--green);font-family:var(--mono)">›</span>RBAC + MFA across staff accounts — eliminated shared-credential use in Q1</li>
+          <li style="font-size:13px;color:var(--text2);line-height:1.85;padding-left:14px;position:relative;margin-bottom:4px"><span style="position:absolute;left:0;color:var(--green);font-family:var(--mono)">›</span>Quarterly phishing-awareness training across 3 campuses</li>
           <li style="font-size:13px;color:var(--text2);line-height:1.85;padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--green);font-family:var(--mono)">›</span>Linux &amp; Windows Server patching + weekly backup verification</li>
         </ul>
         <div style="margin-top:14px"><span class="badge bg">MFA</span><span class="badge bg">RBAC</span><span class="badge bc">Linux</span><span class="badge bc">Windows Server</span><span class="badge ba">Incident Response</span></div>
@@ -187,8 +166,8 @@
           <div style="font-family:var(--mono);font-size:10px;color:var(--green);background:var(--gdim);border:1px solid var(--border);border-radius:3px;padding:4px 10px">2022-07 → 2023-07</div>
         </div>
         <ul style="padding-left:0;list-style:none">
-          <li style="font-size:13px;color:var(--text2);line-height:1.85;padding-left:14px;position:relative;margin-bottom:2px"><span style="position:absolute;left:0;color:var(--green);font-family:var(--mono)">›</span>Deployed Palo Alto NGFW, Cisco FTD/FMC &amp; ISE for Nepal's Government Integrated Data Centre</li>
-          <li style="font-size:13px;color:var(--text2);line-height:1.85;padding-left:14px;position:relative;margin-bottom:2px"><span style="position:absolute;left:0;color:var(--green);font-family:var(--mono)">›</span>F5 WAF + Arbor APS DDoS protection — signature tuning &amp; IR handover documentation</li>
+          <li style="font-size:13px;color:var(--text2);line-height:1.85;padding-left:14px;position:relative;margin-bottom:4px"><span style="position:absolute;left:0;color:var(--green);font-family:var(--mono)">›</span>Deployed Palo Alto NGFW, Cisco FTD/FMC &amp; ISE for Nepal's Government Integrated Data Centre — zero-trust segmentation</li>
+          <li style="font-size:13px;color:var(--text2);line-height:1.85;padding-left:14px;position:relative;margin-bottom:4px"><span style="position:absolute;left:0;color:var(--green);font-family:var(--mono)">›</span>F5 WAF + Arbor APS DDoS protection — signature tuning &amp; IR handover documentation</li>
           <li style="font-size:13px;color:var(--text2);line-height:1.85;padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--green);font-family:var(--mono)">›</span>Firewall rule-sets &amp; VPN concentrators aligned to ISO 27001 control objectives</li>
         </ul>
         <div style="margin-top:14px"><span class="badge bg">Palo Alto NGFW</span><span class="badge bg">Cisco FTD/FMC</span><span class="badge bg">Cisco ISE</span><span class="badge ba">F5 WAF</span><span class="badge ba">Arbor APS</span><span class="badge bb">ISO 27001</span></div>
@@ -230,17 +209,17 @@
         <div style="width:36px;height:36px;border-radius:8px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">🛡</div>
         <div style="flex:1">
           <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span style="font-size:13px;font-weight:600">SSRF: trust-based exploits &amp; adaptive multi-layered defense framework</span><span class="badge bg">FEATURED</span></div>
-          <div style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-top:2px">MSc dissertation · Northumbria University London · May 2026</div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-top:2px">MSc dissertation · Northumbria University London · May 2026 · Supervisor: Prof. Hamid Jahankhani</div>
         </div>
       </div>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
-        <div class="stat" style="padding:10px 8px"><div style="font-family:var(--mono);font-size:17px;font-weight:700;color:var(--text)">89%</div><div style="font-family:var(--mono);font-size:9px;color:var(--text3);margin-top:2px">accuracy</div></div>
-        <div class="stat" style="padding:10px 8px"><div style="font-family:var(--mono);font-size:17px;font-weight:700;color:var(--green)">0%</div><div style="font-family:var(--mono);font-size:9px;color:var(--text3);margin-top:2px">false_positives</div></div>
-        <div class="stat" style="padding:10px 8px"><div style="font-family:var(--mono);font-size:17px;font-weight:700;color:var(--text)">900</div><div style="font-family:var(--mono);font-size:9px;color:var(--text3);margin-top:2px">test_runs</div></div>
-        <div class="stat" style="padding:10px 8px"><div style="font-family:var(--mono);font-size:17px;font-weight:700;color:var(--text)">&lt;1ms</div><div style="font-family:var(--mono);font-size:9px;color:var(--text3);margin-top:2px">latency</div></div>
+        <div class="stat" style="padding:10px 8px"><div class="metric-val" style="font-family:var(--mono);font-size:17px;font-weight:700;color:var(--text)">0</div><div style="font-family:var(--mono);font-size:9px;color:var(--text3);margin-top:2px">accuracy</div></div>
+        <div class="stat" style="padding:10px 8px"><div class="metric-val" style="font-family:var(--mono);font-size:17px;font-weight:700;color:var(--green)">0</div><div style="font-family:var(--mono);font-size:9px;color:var(--text3);margin-top:2px">false_positives</div></div>
+        <div class="stat" style="padding:10px 8px"><div class="metric-val" style="font-family:var(--mono);font-size:17px;font-weight:700;color:var(--text)">0</div><div style="font-family:var(--mono);font-size:9px;color:var(--text3);margin-top:2px">test_runs</div></div>
+        <div class="stat" style="padding:10px 8px"><div class="metric-val" style="font-family:var(--mono);font-size:17px;font-weight:700;color:var(--text)">&lt;1ms</div><div style="font-family:var(--mono);font-size:9px;color:var(--text3);margin-top:2px">latency</div></div>
       </div>
       <p style="font-size:12px;color:var(--text2);line-height:1.7;margin:0">89% accuracy, 0% false positives. Python ML detection + 7 Kubernetes NetworkPolicies across 900 automated test executions.</p>
-      <div><span class="badge bg">Zero Trust</span><span class="badge bc">Kubernetes</span><span class="badge bb">Python</span><span class="badge ba">OWASP</span><span class="badge br">SSRF</span></div>
+      <div><span class="badge bg">Zero Trust (NIST 800-207)</span><span class="badge bc">Kubernetes NetworkPolicy</span><span class="badge bb">Python</span><span class="badge ba">OWASP WebGoat</span><span class="badge br">SSRF</span><span class="badge bb">Docker · Minikube</span></div>
     </div>
     <div class="sec">msc_thesis</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px">
@@ -254,12 +233,12 @@
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px">
       <div class="proj-card" onclick="openProject('entnet')">
         <div style="display:flex;align-items:center;gap:12px"><div style="width:36px;height:36px;border-radius:8px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:18px">🌐</div><div><div style="font-size:13px;font-weight:600">Enterprise network design</div><div style="font-family:var(--mono);font-size:10px;color:var(--text3)">BE IT final project · Pokhara Uni · 2018</div></div></div>
-        <p style="font-size:12px;color:var(--text2);line-height:1.7;margin:0">Dual-ISP redundant enterprise LAN — HSRP, OSPF, VLAN segmentation, SSH access.</p>
+        <p style="font-size:12px;color:var(--text2);line-height:1.7;margin:0">Dual-ISP redundant LAN — HSRP, OSPF, VLAN segmentation, SSH access.</p>
         <div><span class="badge bg">OSPF</span><span class="badge bg">HSRP</span><span class="badge bb">VLAN/STP</span><span class="badge ba">SSH</span></div>
       </div>
       <div class="proj-card" onclick="openProject('letscode')">
         <div style="display:flex;align-items:center;gap:12px"><div style="width:36px;height:36px;border-radius:8px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:18px">💻</div><div><div style="font-size:13px;font-weight:600">Letscode Together</div><div style="font-family:var(--mono);font-size:10px;color:var(--text3)">BE IT final project · Pokhara Uni · 2018</div></div></div>
-        <p style="font-size:12px;color:var(--text2);line-height:1.7;margin:0">Real-time collaborative coding platform with shared live editor and challenge tracking.</p>
+        <p style="font-size:12px;color:var(--text2);line-height:1.7;margin:0">Real-time collaborative coding platform with shared live editor.</p>
         <div><span class="badge bb">Real-time collab</span><span class="badge bc">Web dev</span><span class="badge bd">SQL</span></div>
       </div>
     </div>
@@ -282,8 +261,6 @@
       <div class="card" style="flex:1;min-width:200px"><div style="display:flex;align-items:center;gap:12px"><span style="font-size:22px">⚡</span><div><div style="font-family:var(--mono);font-size:11px;color:var(--green);margin-bottom:3px">tryhackme + hack_the_box</div><div style="font-size:12px;color:var(--text2)">SOC paths · web exploitation · privilege escalation · CTFs</div></div></div></div>
     </div>
   </div>
-
-  <!-- Project details (hidden by default) -->
   <div id="proj-detail" style="display:none">
     <div onclick="closeProject()" style="font-family:var(--mono);font-size:11px;color:var(--green);cursor:pointer;margin-bottom:24px;display:inline-flex;align-items:center;gap:6px">← cd ..</div>
     <div id="proj-detail-content"></div>
@@ -296,29 +273,20 @@
     <div>
       <div class="sec">firewall_network // core strength</div>
       <div class="card" style="margin-bottom:16px">
-        <div class="skill-row"><span style="font-size:13px;color:var(--text);flex:1">Palo Alto NGFW</span><div class="skill-track"><div class="skill-fill" style="width:100%"></div></div><span style="font-family:var(--mono);font-size:10px;color:var(--text3);min-width:22px">5/5</span></div>
-        <div class="skill-row"><span style="font-size:13px;color:var(--text);flex:1">Cisco FTD/FMC</span><div class="skill-track"><div class="skill-fill" style="width:80%"></div></div><span style="font-family:var(--mono);font-size:10px;color:var(--text3);min-width:22px">4/5</span></div>
-        <div class="skill-row"><span style="font-size:13px;color:var(--text);flex:1">Cisco ISE</span><div class="skill-track"><div class="skill-fill" style="width:80%"></div></div><span style="font-family:var(--mono);font-size:10px;color:var(--text3);min-width:22px">4/5</span></div>
-        <div class="skill-row"><span style="font-size:13px;color:var(--text);flex:1">F5 WAF</span><div class="skill-track"><div class="skill-fill" style="width:80%"></div></div><span style="font-family:var(--mono);font-size:10px;color:var(--text3);min-width:22px">4/5</span></div>
-        <div class="skill-row"><span style="font-size:13px;color:var(--text);flex:1">Arbor APS</span><div class="skill-track"><div class="skill-fill" style="width:80%"></div></div><span style="font-family:var(--mono);font-size:10px;color:var(--text3);min-width:22px">4/5</span></div>
-        <div class="skill-row"><span style="font-size:13px;color:var(--text);flex:1">IDS/IPS + VPN</span><div class="skill-track"><div class="skill-fill" style="width:80%"></div></div><span style="font-family:var(--mono);font-size:10px;color:var(--text3);min-width:22px">4/5</span></div>
+        <div class="skill-row"><span style="font-size:13px;color:var(--text);flex:1">Palo Alto NGFW</span><div class="skill-track"><div class="skill-fill" data-width="100"></div></div><span style="font-family:var(--mono);font-size:10px;color:var(--text3);min-width:22px">5/5</span></div>
+        <div class="skill-row"><span style="font-size:13px;color:var(--text);flex:1">Cisco FTD/FMC</span><div class="skill-track"><div class="skill-fill" data-width="80"></div></div><span style="font-family:var(--mono);font-size:10px;color:var(--text3);min-width:22px">4/5</span></div>
+        <div class="skill-row"><span style="font-size:13px;color:var(--text);flex:1">Cisco ISE</span><div class="skill-track"><div class="skill-fill" data-width="80"></div></div><span style="font-family:var(--mono);font-size:10px;color:var(--text3);min-width:22px">4/5</span></div>
+        <div class="skill-row"><span style="font-size:13px;color:var(--text);flex:1">F5 WAF</span><div class="skill-track"><div class="skill-fill" data-width="80"></div></div><span style="font-family:var(--mono);font-size:10px;color:var(--text3);min-width:22px">4/5</span></div>
+        <div class="skill-row"><span style="font-size:13px;color:var(--text);flex:1">Arbor APS</span><div class="skill-track"><div class="skill-fill" data-width="80"></div></div><span style="font-family:var(--mono);font-size:10px;color:var(--text3);min-width:22px">4/5</span></div>
+        <div class="skill-row"><span style="font-size:13px;color:var(--text);flex:1">IDS/IPS + VPN</span><div class="skill-track"><div class="skill-fill" data-width="80"></div></div><span style="font-family:var(--mono);font-size:10px;color:var(--text3);min-width:22px">4/5</span></div>
       </div>
       <div class="sec">compliance_frameworks</div>
       <div class="card" style="margin-bottom:16px"><span class="badge ba">ISO 27001</span><span class="badge ba">NIST CSF / 800-207</span><span class="badge ba">OWASP</span><span class="badge ba">CIS Controls</span><span class="badge ba">Zero Trust</span></div>
       <div class="sec">education</div>
       <div class="card">
-        <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,0.05)">
-          <div style="display:flex;justify-content:space-between;align-items:start;gap:8px"><div style="font-size:13px;font-weight:500">MSc Cyber Security with Advanced Practice</div><span class="badge bg">IN PROGRESS</span></div>
-          <div style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-top:3px">Northumbria University, London · 2025 → present</div>
-        </div>
-        <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,0.05)">
-          <div style="display:flex;justify-content:space-between;align-items:start;gap:8px"><div style="font-size:13px;font-weight:500">MSc Computer Science</div><span class="badge ba">DEAN'S LIST</span></div>
-          <div style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-top:3px">Pokhara University, Nepal · 2019 → 2022</div>
-        </div>
-        <div>
-          <div style="font-size:13px;font-weight:500">BE Information Technology</div>
-          <div style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-top:3px">Pokhara University, Nepal · 2014 → 2018</div>
-        </div>
+        <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,0.05)"><div style="display:flex;justify-content:space-between;gap:8px"><div style="font-size:13px;font-weight:500">MSc Cyber Security with Advanced Practice</div><span class="badge bg">IN PROGRESS</span></div><div style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-top:3px">Northumbria University, London · 2025 → present</div></div>
+        <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,0.05)"><div style="display:flex;justify-content:space-between;gap:8px"><div style="font-size:13px;font-weight:500">MSc Computer Science</div><span class="badge ba">DEAN'S LIST</span></div><div style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-top:3px">Pokhara University, Nepal · 2019 → 2022</div></div>
+        <div><div style="font-size:13px;font-weight:500">BE Information Technology</div><div style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-top:3px">Pokhara University, Nepal · 2014 → 2018</div></div>
       </div>
     </div>
     <div>
@@ -361,7 +329,7 @@
     </div>
     <div class="card">
       <div style="font-family:var(--mono);font-size:11px;color:var(--green);margin-bottom:18px">// send_message.sh</div>
-      <div id="msg-success">
+      <div id="msg-success" style="display:none;text-align:center;padding:36px 0">
         <div style="font-family:var(--mono);font-size:28px;color:var(--green);margin-bottom:12px">✓</div>
         <div style="font-family:var(--mono);font-size:13px;color:var(--green)">Message transmitted.</div>
         <div style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-top:6px">I'll respond shortly.</div>
@@ -370,28 +338,82 @@
         <div><div style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-bottom:6px">name:</div><input type="text" name="name" placeholder="your_name" class="c-input" required /></div>
         <div><div style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-bottom:6px">email:</div><input type="email" name="email" placeholder="your@email.com" class="c-input" required /></div>
         <div><div style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-bottom:6px">message:</div><textarea name="message" placeholder="what_would_you_like_to_discuss?" class="c-input" style="height:110px;resize:vertical" required></textarea></div>
-        <div id="msg-error">! transmission failed — please try again or email directly.</div>
+        <div id="msg-error" style="display:none;font-family:var(--mono);font-size:11px;color:var(--red)">! transmission failed — please try again or email directly.</div>
         <button type="submit" class="cta-btn" id="send-btn">./send --secure ↗</button>
       </form>
     </div>
   </div>
 </div>
 
-</div><!-- end wrap -->
+</div>
 
 <script>
-// Navigation
+// ─── Navigation ───────────────────────────────────────────────
 function goTo(id, el) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('on'));
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('on'));
   document.getElementById('page-' + id).classList.add('on');
   document.getElementById('nav-path').textContent = id === 'home' ? '~' : '/' + id;
   if (el) el.classList.add('on');
-  else document.querySelector('[onclick*="goTo(\'' + id + '\'"]')?.classList.add('on');
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (id === 'skills') setTimeout(animateSkills, 150);
+  if (id === 'projects') animateMetrics();
 }
 
-// Project detail data
+// ─── Typing animation ─────────────────────────────────────────
+function typeText(el, text, speed, delay, cb) {
+  setTimeout(() => {
+    let i = 0;
+    const iv = setInterval(() => {
+      if (i < text.length) { el.textContent = text.slice(0, ++i); }
+      else { clearInterval(iv); if (cb) cb(); }
+    }, speed);
+  }, delay);
+}
+typeText(document.getElementById('typing1'), 'Cyber Security Professional', 45, 500, () => {
+  typeText(document.getElementById('typing2'), 'Network Security · SecOps · Research', 30, 200);
+});
+
+// ─── Skill bar animation ──────────────────────────────────────
+function animateSkills() {
+  document.querySelectorAll('.skill-fill').forEach((bar, i) => {
+    const target = parseInt(bar.getAttribute('data-width'));
+    bar.style.width = '0%';
+    bar.style.transition = 'none';
+    setTimeout(() => {
+      bar.style.transition = 'width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      bar.style.width = target + '%';
+    }, 100 + i * 80);
+  });
+}
+
+// ─── Counter animation ────────────────────────────────────────
+function animateCounter(el, target, suffix, duration) {
+  const start = Date.now();
+  const tick = () => {
+    const elapsed = Date.now() - start;
+    const p = Math.min(elapsed / duration, 1);
+    const eased = p < 0.5 ? 2 * p * p : -1 + (4 - 2 * p) * p;
+    const val = Math.round(eased * target);
+    el.textContent = val + suffix;
+    if (p < 1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+
+function animateMetrics() {
+  const vals = document.querySelectorAll('.metric-val');
+  if (vals.length >= 3) {
+    setTimeout(() => animateCounter(vals[0], 89, '%', 2500), 400);
+    setTimeout(() => animateCounter(vals[1], 0, '%', 1000), 600);
+    setTimeout(() => animateCounter(vals[2], 900, '', 3000), 800);
+  }
+}
+
+// Run on page load
+animateMetrics();
+
+// ─── Project detail data ──────────────────────────────────────
 const PROJECTS = {
   ssrf: {
     feat: true, icon: '🛡',
@@ -399,7 +421,7 @@ const PROJECTS = {
     meta: 'MSc dissertation · Northumbria University London · May 2026 · Supervisor: Prof. Hamid Jahankhani',
     summary: '89% accuracy, 0% false positives, <1ms latency. Python ML detection + 7 Kubernetes NetworkPolicies across 900 automated test executions.',
     metrics: [{l:'accuracy',v:'89%',hi:false},{l:'false_positives',v:'0%',hi:true},{l:'test_runs',v:'900',hi:false},{l:'latency',v:'<1ms',hi:false}],
-    tags: [['Zero Trust','bg'],['Kubernetes NetworkPolicy','bc'],['Python','bb'],['OWASP WebGoat','ba'],['SSRF','br'],['Docker · Minikube','bb']],
+    tags: [['Zero Trust','bg'],['Kubernetes','bc'],['Python','bb'],['OWASP','ba'],['SSRF','br'],['Docker','bb']],
     what: ['5 Python modules: URL parser, rule matcher, logistic regression (15 features), risk scorer (0–100), orchestrator','7 Kubernetes NetworkPolicies: default-deny egress, metadata block (169.254.x.x), RFC 1918 block, namespace isolation, external allowlist, DNS policy, combined defense','Flask REST API: /analyze /batch /health /stats','100-case dataset across 6 attack categories — 900 executions × 3 configurations'],
     cats: [{n:'Benign external',a:100},{n:'Private IP SSRF',a:90},{n:'Azure/GCP metadata',a:86.7},{n:'Localhost SSRF',a:85},{n:'AWS metadata',a:85},{n:'Bypass techniques',a:80}],
     contributions: ['Zero false positive rate — eliminates SOC alert fatigue','Layer independence: 89% consistent across all 3 configurations','Platform-agnostic — beyond PHP-only tools (SSRFuzz, Artemis)','Sub-ms latency vs NIST 5–15% mTLS overhead estimate'],
@@ -408,12 +430,12 @@ const PROJECTS = {
   },
   thesis: {
     feat: false, icon: '🗺',
-    title: 'Travel route planning via congestion detection & arrival time prediction',
-    meta: 'MSc Computer Science thesis · Pokhara University · 2022 · Dean\'s List',
+    title: "Travel route planning via congestion detection & arrival time prediction",
+    meta: "MSc Computer Science thesis · Pokhara University · 2022 · Dean's List",
     summary: 'GPS trajectory LSTM/GRU congestion detection with HMM map matching on Kathmandu valley data. Simulated in OMNeT++, Veins and SUMO.',
     tags: [['LSTM/GRU','bg'],['HMM','bb'],['OMNeT++/SUMO','bc'],['Python','bb'],['QGIS','bc']],
     what: ['HMM map matching on real GPS trajectory data from Kathmandu valley','LSTM + GRU models for congestion index and arrival time prediction','RSU + cloud hybrid rerouting architecture','V2V beaconing simulation with accident scenario at t=73s'],
-    contributions: ['ML applied to real network infrastructure problems','Smart city / ITS simulation toolchains','Network behaviour modelling relevant to SecOps'],
+    contributions: ['ML applied to real network infrastructure problems','Smart city / ITS simulation toolchains (OMNeT++, Veins, SUMO)','Network behaviour modelling relevant to SecOps'],
     links: []
   },
   entnet: {
@@ -460,13 +482,12 @@ const PROJECTS = {
 
 function openProject(id) {
   const p = PROJECTS[id];
-  let html = `
-    <div class="card${p.feat?' card-feat':''}" style="margin-bottom:18px">
-      <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px">
-        <div style="width:48px;height:48px;border-radius:10px;background:var(--bg3);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0">${p.icon}</div>
-        <div><div style="font-size:16px;font-weight:600;margin-bottom:4px">${p.title}</div><div style="font-family:var(--mono);font-size:10px;color:var(--text2)">${p.meta}</div></div>
-      </div>
-      <p style="font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:16px">${p.summary}</p>`;
+  let html = `<div class="card${p.feat?' card-feat':''}" style="margin-bottom:18px">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px">
+      <div style="width:48px;height:48px;border-radius:10px;background:var(--bg3);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0">${p.icon}</div>
+      <div><div style="font-size:16px;font-weight:600;margin-bottom:4px">${p.title}</div><div style="font-family:var(--mono);font-size:10px;color:var(--text2)">${p.meta}</div></div>
+    </div>
+    <p style="font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:16px">${p.summary}</p>`;
   if (p.metrics) {
     html += `<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px">`;
     p.metrics.forEach(m => {
@@ -479,28 +500,31 @@ function openProject(id) {
   html += `</div></div><div class="two-col">`;
   if (p.what) {
     html += `<div class="card"><div class="sec">what_was_built</div><ul style="padding-left:0;list-style:none">`;
-    p.what.forEach(w => { html += `<li style="font-size:12px;color:var(--text2);line-height:1.9;padding-left:14px;position:relative;margin-bottom:2px"><span style="position:absolute;left:0;color:var(--green);font-family:var(--mono)">›</span>${w}</li>`; });
+    p.what.forEach(w => { html += `<li style="font-size:12px;color:var(--text2);line-height:1.9;padding-left:14px;position:relative;margin-bottom:4px"><span style="position:absolute;left:0;color:var(--green);font-family:var(--mono)">›</span>${w}</li>`; });
     html += `</ul></div>`;
   }
   if (p.cats) {
     html += `<div class="card"><div class="sec">detection_by_category</div>`;
     p.cats.forEach(c => {
-      html += `<div style="display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04)"><span style="font-family:var(--mono);font-size:10px;color:var(--text2);flex:1">${c.n}</span><div class="acc-track"><div class="acc-fill" style="width:${c.a}%;background:${c.a===100?'var(--green)':'var(--cyan)'}"></div></div><span style="font-family:var(--mono);font-size:10px;color:var(--text3);min-width:38px;text-align:right">${c.a}%</span></div>`;
+      html += `<div style="display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04)">
+        <span style="font-family:var(--mono);font-size:10px;color:var(--text2);flex:1">${c.n}</span>
+        <div class="acc-track"><div class="acc-fill" style="width:${c.a}%;background:${c.a===100?'var(--green)':'var(--cyan)'}"></div></div>
+        <span style="font-family:var(--mono);font-size:10px;color:var(--text3);min-width:38px;text-align:right">${c.a}%</span></div>`;
     });
     html += `</div>`;
   }
   if (p.contributions) {
     html += `<div class="card"><div class="sec">contributions</div><ul style="padding-left:0;list-style:none">`;
-    p.contributions.forEach(c => { html += `<li style="font-size:12px;color:var(--text2);line-height:1.9;padding-left:14px;position:relative;margin-bottom:2px"><span style="position:absolute;left:0;color:var(--green);font-family:var(--mono)">›</span>${c}</li>`; });
+    p.contributions.forEach(c => { html += `<li style="font-size:12px;color:var(--text2);line-height:1.9;padding-left:14px;position:relative;margin-bottom:4px"><span style="position:absolute;left:0;color:var(--green);font-family:var(--mono)">›</span>${c}</li>`; });
     html += `</ul></div>`;
   }
   if (p.context) {
     html += `<div class="card"><div class="sec">threat_context</div><ul style="padding-left:0;list-style:none">`;
-    p.context.forEach(c => { html += `<li style="font-size:12px;color:var(--text2);line-height:1.9;padding-left:14px;position:relative;margin-bottom:2px"><span style="position:absolute;left:0;color:var(--red);font-family:var(--mono)">!</span>${c}</li>`; });
+    p.context.forEach(c => { html += `<li style="font-size:12px;color:var(--text2);line-height:1.9;padding-left:14px;position:relative;margin-bottom:4px"><span style="position:absolute;left:0;color:var(--red);font-family:var(--mono)">!</span>${c}</li>`; });
     html += `</ul></div>`;
   }
   html += `</div>`;
-  if (p.links.length) {
+  if (p.links && p.links.length) {
     html += `<div style="margin-top:16px;display:flex;gap:10px">`;
     p.links.forEach(l => { html += `<a href="${l.u}" target="_blank" class="ghost-btn">⬡ ${l.l} ↗</a>`; });
     html += `</div>`;
@@ -509,6 +533,18 @@ function openProject(id) {
   document.getElementById('proj-list').style.display = 'none';
   document.getElementById('proj-detail').style.display = 'block';
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Animate acc bars
+  setTimeout(() => {
+    document.querySelectorAll('#proj-detail .acc-fill').forEach((bar, i) => {
+      const w = bar.style.width;
+      bar.style.width = '0%';
+      bar.style.transition = 'none';
+      setTimeout(() => {
+        bar.style.transition = 'width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        bar.style.width = w;
+      }, 150 + i * 120);
+    });
+  }, 300);
 }
 
 function closeProject() {
@@ -517,17 +553,16 @@ function closeProject() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Contact form
+// ─── Contact form ─────────────────────────────────────────────
 async function sendMsg(e) {
   e.preventDefault();
   const btn = document.getElementById('send-btn');
   btn.textContent = 'transmitting...';
   btn.disabled = true;
   document.getElementById('msg-error').style.display = 'none';
-  const data = new FormData(e.target);
   try {
     const res = await fetch('https://formspree.io/f/mlgvpedo', {
-      method: 'POST', body: data, headers: { Accept: 'application/json' }
+      method: 'POST', body: new FormData(e.target), headers: { Accept: 'application/json' }
     });
     if (res.ok) {
       document.getElementById('contact-form').style.display = 'none';
@@ -543,27 +578,6 @@ async function sendMsg(e) {
     btn.disabled = false;
   }
 }
-
-// Typing animation
-function typeText(el, text, speed, delay, cb) {
-  setTimeout(() => {
-    let i = 0;
-    const iv = setInterval(() => {
-      if (i < text.length) {
-        el.textContent = text.slice(0, ++i);
-      } else {
-        clearInterval(iv);
-        if (cb) cb();
-      }
-    }, speed);
-  }, delay);
-}
-
-const t1 = document.getElementById('typing1');
-const t2 = document.getElementById('typing2');
-typeText(t1, 'Cyber Security Professional', 45, 400, () => {
-  typeText(t2, 'Network Security · SecOps · Research', 30, 200);
-});
 </script>
 </body>
 </html>
